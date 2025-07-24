@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vanh Game - Game Developer Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html, body {
+      scroll-behavior: smooth;
+      background: linear-gradient(135deg, #1e1e2f 0%, #3a3a5a 100%);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #e1e1e8;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background: linear-gradient(90deg, #3b82f6, #22d3ee);
+      box-shadow: 0 4px 8px rgba(34, 211, 238, 0.4);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo-text {
+      font-weight: 900;
+      font-size: 1.75rem;
+      letter-spacing: 2px;
+      color: #0e3a8e;
+      user-select: none;
+    }
+
+    /* Logo Icon made purely with CSS */
+    .logo-icon {
+      width: 38px;
+      height: 38px;
+      margin-right: 0.5rem;
+      position: relative;
+      background: radial-gradient(circle at center, #22d3ee 30%, transparent 70%);
+      border-radius: 50%;
+      box-shadow: 0 0 12px #22d3eeaa;
+    }
+    .logo-icon::before, .logo-icon::after {
+      content: "";
+      position: absolute;
+      border-radius: 3px;
+      background: #3b82f6;
+      box-shadow: 0 0 8px #3b82f6bb;
+      top: 12px;
+      left: 6px;
+      width: 26px;
+      height: 3px;
+      transform: rotate(45deg);
+    }
+    .logo-icon::after {
+      transform: rotate(-45deg);
+      top: 21px;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 2.5rem auto 6rem auto;
+      padding: 0 1rem;
+    }
+
+    .section-title {
+      font-weight: 700;
+      font-size: 2.75rem;
+      text-align: center;
+      margin-bottom: 1rem;
+      background: linear-gradient(to right, #3b82f6, #22d3ee);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      user-select: none;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      font-size: 1.125rem;
+      color: #a5b4fc;
+      margin-bottom: 3rem;
+      user-select: none;
+    }
+
+    .games-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2.5rem;
+      margin-bottom: 4rem;
+    }
+
+    .game-card {
+      background: radial-gradient(ellipse at center, #162b4c 0%, #0a1225 80%);
+      border-radius: 1rem;
+      overflow: hidden;
+      box-shadow: 0 0 12px #22d3eeaa;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+    .game-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 0 20px #22d3eecc;
+    }
+
+    .game-image-container {
+      position: relative;
+      width: 100%;
+      height: 0;
+      padding-bottom: 100%;
+      background: #000c24;
+      overflow: hidden;
+    }
+    .game-image-container img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 90%;
+      height: auto;
+      transform: translate(-50%, -50%);
+      object-fit: contain;
+    }
+
+    .game-title {
+      font-weight: 700;
+      font-size: 1.5rem;
+      text-align: center;
+      margin: 1rem 0 1.5rem 0;
+      color: #22d3ee;
+      user-select: none;
+    }
+
+    /* Background decorative section below */
+    .background-section {
+      margin: 6rem 0;
+      border-radius: 1rem;
+      overflow: hidden;
+      box-shadow: 0 0 40px rgba(34, 211, 238, 0.3);
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      position: relative;
+    }
+    .background-section img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      opacity: 0.85;
+      filter: brightness(0.8);
+      user-select: none;
+      pointer-events: none;
+      display: block;
+      max-height: 380px;
+      margin: 0 auto;
+      border-radius: 1rem;
+    }
+    .background-section .overlay-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      color: #a5b4fc;
+      text-align: center;
+      transform: translate(-50%, -50%);
+      font-size: 2rem;
+      font-weight: 700;
+      text-shadow: 0 0 10px #22d3eeaa;
+      user-select: none;
+      max-width: 80%;
+    }
+
+    footer {
+      background: #0e1726;
+      padding: 1.5rem 1rem;
+      text-align: center;
+      font-size: 0.95rem;
+      color: #64748b;
+      user-select: none;
+      border-top: 1px solid #1e293b;
+      position: relative;
+    }
+
+    footer a {
+      color: #3b82f6;
+      font-weight: 600;
+      text-decoration: underline;
+      transition: color 0.3s ease;
+    }
+    footer a:hover {
+      color: #22d3ee;
+    }
+
+    @media (max-width: 480px) {
+      .section-title {
+        font-size: 2rem;
+      }
+      .section-subtitle {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="flex items-center justify-between px-6 py-4">
+    <div class="flex items-center">
+      <div class="logo-icon"></div>
+      <span class="logo-text">Vanh Game</span>
+    </div>
+    <nav class="hidden md:flex gap-8">
+      <a href="#games" class="nav-link">Games</a>
+      <a href="#about" class="nav-link">About</a>
+      <a href="#contact" class="nav-link">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section aria-labelledby="intro-title" class="mb-12">
+      <h1 id="intro-title" class="section-title">Welcome to Vanh Game</h1>
+      <p class="section-subtitle">
+        Discover exciting games developed by Vanh Game! Dive into engaging worlds and have fun.
+      </p>
+    </section>
+
+    <section id="games" aria-labelledby="games-title" class="mb-20">
+      <h2 id="games-title" class="section-title">Our Games</h2>
+      <div class="games-container" role="list">
+        <!-- Magic Clash -->
+        <article class="game-card" role="listitem" tabindex="0" aria-labelledby="magic-title">
+          <div class="game-image-container">
+            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/b91d73a4-d3df-47ad-8ef4-91677b71cb7e.png" alt="Magic Clash game icon showing a wizard wearing a dark hat holding blue and red magical flames in both hands, colorful fantasy background" />
+          </div>
+          <h3 id="magic-title" class="game-title">Magic Clash</h3>
+          <p class="text-center text-gray-300 px-4 mb-6">An epic battle strategy game with magic wizards and skeletal enemies. Use your spells and tactics to defeat challenges!</p>
+          <div class="game-image-container" style="padding-bottom: 66.66%; max-height: 300px;">
+            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/162eb526-dddc-4f00-b434-5629fc28a5af.png" alt="Magic Clash gameplay showing wizard and skeleton enemies under night forest with colorful magic flames in action" />
+          </div>
+        </article>
+        <!-- Jumpbox -->
+        <article class="game-card" role="listitem" tabindex="0" aria-labelledby="jumpbox-title">
+          <div class="game-image-container" style="padding-bottom: 133.33%; max-height: 400px;">
+            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/5d5b65b6-3d4f-41cd-ba3a-e32792fedf24.png" alt="Jumpbox game icon showing golden treasure chest with blue shining highlights and watch ads button overlay, gaming interface background" />
+          </div>
+          <h3 id="jumpbox-title" class="game-title">Jumpbox</h3>
+          <p class="text-center text-gray-300 px-4 mb-6">A fun casual jumping adventure game with treasure chests and rewarding ads. Jump your way to victory!</p>
+        </article>
+      </div>
+    </section>
+
+    <section aria-label="Background Art Gallery" class="background-section" tabindex="0" aria-describedby="bg-desc">
+      <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/e6ce6b43-032a-435f-b40c-482b63633c66.png" alt="Fantasy background for Magic Clash game featuring wizard casting magic flames, skeleton enemies, and mystical forest in the night with blues and purples" />
+      <div class="overlay-text" id="bg-desc">
+        Dive into a mystical world where magic and adventure collide. Explore our fantasy realms and epic battles.
+      </div>
+    </section>
+
+    <section aria-label="Background Art Gallery" class="background-section" tabindex="0" aria-describedby="bg-desc2">
+      <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/66515e0a-15f0-405c-a452-ae8c793d110e.png" alt="Colorful casual game background for Jumpbox showing space-themed elements, shiny treasure chests, and glowing interactive game buttons on a dark starry sky" />
+      <div class="overlay-text" id="bg-desc2">
+        Experience the thrill of casual adventures with stunning visuals and exciting challenges.
+      </div>
+    </section>
+
+  </main>
+
+  <footer id="contact">
+    <p>Contact me at: <a href="mailto:doanvietanh0201@gmail.com" aria-label="Send email to doanvietanh0201@gmail.com">doanvietanh0201@gmail.com</a></p>
+    <p>© 2024 Vanh Game. All rights reserved.</p>
+  </footer>
+</body>
+</html>
+
